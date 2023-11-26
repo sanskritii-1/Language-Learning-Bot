@@ -1,0 +1,250 @@
+/* Add basic styling for the chat interface */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+  margin: 0;
+  padding: 0;
+}
+
+/* Sidebar styles */
+.sidebar {
+  width: 200px;
+  background-color: #333;
+  color: white;
+  padding: 20px;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.sidebar h2 {
+  margin-top: 0;
+}
+
+.sidebar ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.sidebar li {
+  margin-bottom: 10px;
+}
+
+/* Dropdown styles */
+.dropdown {
+  position: relative;
+  cursor: pointer;
+  padding-top: 39px;
+  padding-left: 15px;
+}
+
+.dropdown-content {
+  /* display: none; */
+  position: absolute;
+  top: 100%;
+  left: 4;
+  background-color: #333;
+  min-width: 150px;
+}
+
+/* .dropdown-content a {
+  color: white;
+  padding: 10px;
+  text-decoration: none;
+  display: block;
+} */
+
+/* .dropdown:hover .dropdown-content {
+  display: block;
+} */
+
+.chat-container {
+  /* position: relative; */
+  max-width: 100%;
+  margin: 0 auto;
+  margin-left: 240px;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  height: 80vh;
+  /* Set a fixed height for the chat container */
+  overflow-y: auto;
+  /* Add vertical scrolling for overflow */
+}
+
+/* User and bot messages with different colors */
+.message {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 10px;
+}
+
+.user-message {
+  background-color: #6abeb2;
+  color: white;
+  text-align: right;
+  border-radius: 5px;
+  margin-left: auto;
+  padding: 7px;
+  max-width: 65%;
+}
+
+.bot-message {
+  background-color: #e6afaf;
+  text-align: left;
+  color: #333;
+  /* Change the color of bot responses */
+  border-radius: 5px;
+  margin-right: auto;
+  padding: 7px;
+  max-width: 65%;
+}
+
+/* User input field and button */
+.user-input {
+  display: flex;
+  align-items: center;
+}
+
+
+.user-input input[type="text"] {
+  flex-grow: 1;
+  padding: 10px;
+  margin-right: 10px;
+  /* margin-left: 500px; */
+  margin-top: 25px;
+  border-radius: 5px;
+  margin-left: 30px;
+}
+
+.user-input button {
+  border: none;
+  padding: 10px 10px;
+  cursor: pointer;
+  margin-top: 25px;
+  border-radius: 5px;
+}
+
+#sendMessage {
+  background-color: #65c4be;
+  color: white;
+  margin-right: 300px;
+}
+
+#hint {
+  background-color: #83c7e2;
+  margin-left: 350px;
+}
+
+#microphone {
+  background-color: #83c7e2;
+  margin-left: 30px;
+}
+
+.user-input img {
+  max-width: 20px;
+
+}
+
+/* Images for the bot and human */
+.bot-image {
+  max-width: 100px;
+  max-height: 100px;
+  align-self: flex-end;
+  margin-left: 10px;
+}
+
+.human-animation {
+  max-width: 100px;
+  max-height: 100px;
+  align-self: flex-start;
+  margin-right: 10px;
+
+}
+
+
+/* Style the <select> element */
+select {
+  margin-top: 5px;
+  padding: 3px;
+  /* Adjust padding as needed */
+  font-size: 16px;
+  /* Adjust font size as needed */
+  border: 1px solid #ccc;
+  /* Add a border */
+  border-radius: 5px;
+  /* Add rounded corners */
+  width: 150px;
+  /* Set a specific width */
+}
+
+/* Style the <option> elements */
+option {
+  font-size: 14px;
+  /* Adjust font size as needed */
+  padding: 5px 10px;
+  /* Adjust padding as needed */
+  background-color: #fff;
+  /* Background color for options */
+  color: #333;
+  /* Text color for options */
+}
+
+/* Style the dropdown when it's focused (clicked) */
+select:focus {
+  border-color: #007bff;
+  /* Change border color when focused */
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+  /* Add a shadow when focused */
+}
+
+.user-trans {
+  width: 30px;
+  text-align: right;
+  margin-left: auto;
+}
+
+button.user-translation img {
+  max-width: 20px;
+}
+
+.bot-trans {
+  width: 30px;
+  text-align: right;
+  margin-right: auto;
+}
+
+button.bot-translation img {
+  max-width: 20px;
+}
+
+.user-correction {
+  background-color: #c2c8c7;
+  color: rgb(99, 96, 96);
+  text-align: right;
+  border-radius: 5px;
+  margin-left: auto;
+  padding: 7px;
+  max-width: 65%;
+}
+
+.bottom-bar {
+  /* background-color: #04ff00; */
+  position: fixed;
+  color: black;
+  bottom: 0;
+  left: 57%;
+  transform: translateX(-50%);
+  width: auto;
+  background-color: #9ab5c0;
+  opacity: 0.8;
+  text-align: center;
+  padding: 10px;
+  max-width: 80%;
+  margin-bottom: 130px;
+  border-radius: 5px;
+  display: none;
+}

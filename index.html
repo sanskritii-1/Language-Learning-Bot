@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chatbot</title>
+  <link rel="stylesheet" href="index.css">
+
+</head>
+
+<body>
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <h2>Options</h2>
+    <ul>
+      <li class="dropdown">
+        Scenarios
+        <div class="dropdown-content">
+          <select id="roleplay" name="Roleplay">
+            <option value="default">Default</option>
+            <option value="doctor">Hospital</option>
+            <option value="cafe">Cafe</option>
+            <option value="supermarket">Supermarket</option>
+            <option value="restaurant">Restaurant</option>
+          </select>
+
+        </div>
+      </li>
+      <li class="dropdown">
+        Languages
+        <div class="dropdown-content">
+          <!-- <a href="#">English</a>
+        <a href="#">Spanish</a>
+        <a href="#">French</a>
+        <a href="#">Hindi</a>
+        <a href="#">German</a>
+        <a href="#">Chinese</a>
+        <a href="#">Japnanese</a>
+        <a href="#">Italian</a> -->
+          <select id="languages" name="languages" onchange="change_lang(this.value);">
+            <option value="English">English</option>
+            <option value="Spanish">Spanish</option>
+            <option value="French">French</option>
+            <option value="German">German</option>
+            <option value="Hindi">Hindi</option>
+            <option value="Chinese">Chinese</option>
+            <option value="Japnanese">Japnanese</option>
+          </select>
+
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <div class="chat-container" id="chatContainer">
+    <!-- Chat messages container -->
+    <div class="message bot-message">
+      <p>Hello! How can I assist you today?</p>
+      <img src="assets/img/bot_image.jpg" alt="Bot Image" class="bot-image">
+    </div>
+
+
+    <div id="hintBar" class="bottom-bar">
+    </div>
+  </div>
+
+  <!-- User input field -->
+  <div class="user-input">
+    <button id="hint"><img src="assets/img/hint.png"></button>
+    <button id="microphone"><img src="assets/img/mic.png"></button>
+    <input type="text" id="userMessage" placeholder="Type your message...">
+    <button id="sendMessage">Send</button>
+  </div>
+
+
+  <!-- JavaScript for chat functionality -->
+  <script src="app.js"></script>
+</body>
+
+</html>
