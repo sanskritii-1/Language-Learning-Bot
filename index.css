@@ -31,17 +31,35 @@ body {
   margin-bottom: 10px;
 }
 
+.new-chat-button {
+  background-color: #cfd9d8;
+  color: rgb(0, 0, 0);
+  font-weight: 600;
+  border: none;
+  padding: 10px;
+  padding-left: 44px;
+  padding-right: 44px;
+  cursor: pointer;
+  border-radius: 5px;
+  /* margin-bottom: 10px; */
+  margin-left: 12px;
+  margin-top: 10px;
+  
+}
+
 /* Dropdown styles */
 .dropdown {
-  position: relative;
-  cursor: pointer;
-  padding-top: 39px;
+  /* position: relative; */
+  /* cursor: pointer; */
+  padding-top: 20px;
   padding-left: 15px;
+  /* background-color: #007bff; */
 }
 
 .dropdown-content {
   /* display: none; */
-  position: absolute;
+  /* position: absolute; */
+  /* cursor: pointer; */
   top: 100%;
   left: 4;
   background-color: #333;
@@ -79,10 +97,41 @@ body {
 .message {
   display: flex;
   align-items: flex-start;
+  /* align-items: center; */
   margin-bottom: 10px;
 }
 
-.user-message {
+.translated.user {
+  /* white-space: pre-line; */
+  color: #dce1e4;
+}
+
+.translated.bot {
+  /* white-space: pre-line; */
+  color: #5b5e5f;
+}
+
+.translated.sug {
+  /* white-space: pre-line; */
+  color: #efebeb;
+}
+
+.message.user-message{
+  display: flex;
+  flex-direction: column;
+
+}
+.message.bot-message{
+  display: flex;
+  flex-direction: column;
+  /* flex-direction: row-reverse;
+  align-items: flex-start; */
+}
+
+.content-user{
+  display: flex;
+  /* flex-direction: column; */
+  align-items: center;
   background-color: #6abeb2;
   color: white;
   text-align: right;
@@ -90,9 +139,16 @@ body {
   margin-left: auto;
   padding: 7px;
   max-width: 65%;
+  /* width: fit-content; */
+  position: relative;
 }
 
-.bot-message {
+.content-bot {
+  display: flex;
+  align-items: center;
+  /* flex-direction: column; */
+
+  /* flex-direction: column; */
   background-color: #e6afaf;
   text-align: left;
   color: #333;
@@ -102,6 +158,7 @@ body {
   padding: 7px;
   max-width: 65%;
 }
+
 
 /* User input field and button */
 .user-input {
@@ -151,17 +208,22 @@ body {
 
 /* Images for the bot and human */
 .bot-image {
-  max-width: 100px;
+  max-width: 50px;
   max-height: 100px;
-  align-self: flex-end;
-  margin-left: 10px;
+  height: auto;
+  /* align-self: flex-end; */
+  /* margin-left: 10px; */
+  transform-origin: bottom;
+  margin-right: 10px;
 }
 
 .human-animation {
-  max-width: 100px;
+  max-width: 50px;
   max-height: 100px;
   align-self: flex-start;
-  margin-right: 10px;
+  margin-right: 0px;
+  margin-left: 10px;
+  transform-origin: bottom;
 
 }
 
@@ -203,18 +265,57 @@ select:focus {
 
 .user-trans {
   width: 30px;
-  text-align: right;
+  /* text-align: right; */
   margin-left: auto;
+  margin-top: 4px;
+  margin-right: 8px;
+  /* position: absolute; */
+  /* bottom: 0; */
 }
 
 button.user-translation img {
   max-width: 20px;
 }
 
+.user-vol {
+  width: 30px;
+  /* text-align: right; */
+  margin-left: auto;
+  margin-top: 4px;
+  /* position: absolute; */
+  /* bottom: 0; */
+}
+
+.bot-vol {
+  width: 30px;
+  /* text-align: right; */
+  /* margin-left: auto; */
+  margin-top: 4px;
+  margin-left: 8px;
+  /* position: absolute; */
+  /* bottom: 0; */
+}
+
+button.speak img {
+  max-width: 20px;
+}
+
 .bot-trans {
   width: 30px;
-  text-align: right;
-  margin-right: auto;
+  margin-top: 4px;
+  /* text-align: right; */
+  /* margin-right: auto;
+  margin-left: auto; */
+}
+
+
+
+.sug-vol{
+  width: 30px;
+}
+
+.sug-trans{
+  width: 30px;
 }
 
 button.bot-translation img {
@@ -240,7 +341,7 @@ button.bot-translation img {
   transform: translateX(-50%);
   width: auto;
   background-color: #9ab5c0;
-  opacity: 0.8;
+  opacity: 1;
   text-align: center;
   padding: 10px;
   max-width: 80%;
@@ -248,3 +349,32 @@ button.bot-translation img {
   border-radius: 5px;
   display: none;
 }
+
+.buttons{
+  display: flex;
+  flex-direction: row;
+}
+
+.user-buts{
+  margin-left: auto;
+}
+
+.suggestion-container{
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  /* align-items: stretch; */
+  background-color: #94a5ab;
+  margin-top: 5px;
+  border-radius: 5px;
+}
+
+.sug-trans, .sug-vol{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 5px;
+}
+
+
+

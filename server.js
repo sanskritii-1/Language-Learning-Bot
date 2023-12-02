@@ -18,8 +18,34 @@ const { OpenAI } = require("langchain/llms/openai");
 
 // will create a .sth file to keep it more safe
 const API_KEY = process.env.OPENAI_API_KEY
+const memory = new BufferWindowMemory({k:3,inputKey:"text"})
 
-const memory = new BufferWindowMemory({k:2,inputKey:"text"})
+app.post('/grammar',async (req, res)=>{
+    try{
+      const inputs = req.body
+
+      const model = new ChatOpenAI({
+        openAIApiKey: API_KEY,
+        modelName:"gpt-3.5-turbo",
+        maxTokens: 100,
+      });
+
+      // const promptTemplate = PromptTemplate.fromTemplate(`Return NULL or give the correct sentence if there are any mistakes in the following sentence:{text}. If there are no mistakes, return NULL`);
+      const promptTemplate = PromptTemplate.fromTemplate(`Return NULL or return the correct sentence for following sentence, if there are any mistakes in it:{text}. If there are no mistakes, return NULL`);
+      
+      const outputParser = new StringOutputParser();
+      const chain = RunnableSequence.from([promptTemplate, model, outputParser]);
+      const result = await chain.invoke(inputs);
+      console.log(result);    
+
+      res.send(result)      
+    
+    }
+    catch(error){
+        console.error(error)
+    }
+})
+
 
 app.post('/chat',async (req, res)=>{
     try{
@@ -55,7 +81,10 @@ app.post('/chat',async (req, res)=>{
         maxTokens: 150,
       });
       
-      const suggestionTemplate = `Give 2 prompts to continue the conversation. Mention just the prompts, in points.
+      // const suggestionTemplate = `Give 2 prompts to continue the conversation. Mention just the prompts, in points.
+      // Conversation:
+      // {reply}`
+      const suggestionTemplate = `Give 2 prompts to continue the conversation. Reply with just the prompts. Mention nothing else other than the prompt.
       Conversation:
       {reply}`
 
@@ -79,26 +108,9 @@ app.post('/chat',async (req, res)=>{
       });
       
       const chainExecutionResult = await overallChain.call(inputs);
-      console.log(chainExecutionResult);
+      console.log(chainExecutionResult);      
       
-      
-      
-      const model = new ChatOpenAI({
-        openAIApiKey: API_KEY,
-        modelName:"gpt-3.5-turbo",
-        maxTokens: 100,
-      });
-      
-      // const promptTemplate = PromptTemplate.fromTemplate(`Return NULL or give the correct sentence if there are any mistakes in the following sentence:{text}. If there are no mistakes, return NULL`);
-      const promptTemplate = PromptTemplate.fromTemplate(`Return NULL or return the correct sentence for following sentence, if there are any mistakes in it:{text}. If there are no mistakes, return NULL`);
-      
-      const outputParser = new StringOutputParser();
-      const chain = RunnableSequence.from([promptTemplate, model, outputParser]);
-      const result = await chain.invoke(inputs);
-      console.log(result);    
-
-      res.send([chainExecutionResult,result])
-    
+      res.send(chainExecutionResult)
     }
     catch(error){
         console.error(error)

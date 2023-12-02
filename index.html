@@ -14,6 +14,10 @@
   <div class="sidebar">
     <h2>Options</h2>
     <ul>
+
+      <button class="new-chat-button" onclick="GoToHomePage()">New Chat</button>
+      
+
       <li class="dropdown">
         Scenarios
         <div class="dropdown-content">
@@ -27,25 +31,34 @@
 
         </div>
       </li>
+      
       <li class="dropdown">
-        Languages
+        Source Language
         <div class="dropdown-content">
-          <!-- <a href="#">English</a>
-        <a href="#">Spanish</a>
-        <a href="#">French</a>
-        <a href="#">Hindi</a>
-        <a href="#">German</a>
-        <a href="#">Chinese</a>
-        <a href="#">Japnanese</a>
-        <a href="#">Italian</a> -->
-          <select id="languages" name="languages" onchange="change_lang(this.value);">
+          <select id="slanguages" name="slanguages" onchange="change_lang_s(this.value)">
             <option value="English">English</option>
             <option value="Spanish">Spanish</option>
             <option value="French">French</option>
             <option value="German">German</option>
             <option value="Hindi">Hindi</option>
             <option value="Chinese">Chinese</option>
-            <option value="Japnanese">Japnanese</option>
+            <option value="Japnanese">Japanese</option>
+          </select>
+
+        </div>
+      </li>
+      
+      <li class="dropdown">
+        Target Language
+        <div class="dropdown-content">
+          <select id="tlanguages" name="tlanguages" onchange="change_lang_t(this.value)">
+            <option value="English">English</option>
+            <option value="Spanish">Spanish</option>
+            <option value="French">French</option>
+            <option value="German">German</option>
+            <option value="Hindi">Hindi</option>
+            <option value="Chinese">Chinese</option>
+            <option value="Japanese">Japanese</option>
           </select>
 
         </div>
@@ -56,13 +69,14 @@
   <div class="chat-container" id="chatContainer">
     <!-- Chat messages container -->
     <div class="message bot-message">
-      <p>Hello! How can I assist you today?</p>
-      <img src="assets/img/bot_image.jpg" alt="Bot Image" class="bot-image">
+      <div class="content-bot">
+        <img src="assets/img/bot_image.png" alt="Bot Image" class="bot-image">
+        <p>Hello! How can I assist you today?</p>
+      </div>
     </div>
 
 
-    <div id="hintBar" class="bottom-bar">
-    </div>
+    <div id="hintBar" class="bottom-bar"></div>
   </div>
 
   <!-- User input field -->
@@ -75,6 +89,7 @@
 
 
   <!-- JavaScript for chat functionality -->
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   <script src="app.js"></script>
 </body>
 
